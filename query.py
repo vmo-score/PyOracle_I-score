@@ -86,13 +86,25 @@ def load_thresholds(folder_path):
         send_class.send(thresholds[feature], address)
 
 
+def num2oracle(n):
+    '''
+    select the corresponding oracle depending on the radio button menu of Max
+    '''
+    return {0: mfcc_oracle,
+            1: centroid_oracle,
+            2: amp_oracle,
+            3: zerocross_oracle,
+            4: pitch_oracle,
+            5: chroma_oracle}[n]
+
+
 def load_oracle(folder_path):
     '''
     load oracles from given folder
     mfcc, centroid, amp, zerocross, pitch, chroma
     all .dat
     '''
-    global mfcc_oracle, centroid_oracle, amp_oracle, zerocross_oracle, pitch_oracle, chroma_oracle, events_list
+    global mfcc_oracle, centroid_oracle, amp_oracle, zerocross_oracle, pitch_oracle, chroma_oracle, events_list, current_oracle, oracle_number
     folder_path = str(folder_path).split(':')[1]
     centroid_oracle = pyoracle.load_oracle(folder_path + 'centroid_oracle.dat.db')
     amp_oracle = pyoracle.load_oracle(folder_path + 'amp_oracle.dat.db')
@@ -100,12 +112,10 @@ def load_oracle(folder_path):
     pitch_oracle = pyoracle.load_oracle(folder_path + 'pitch_oracle.dat.db')
     chroma_oracle = pyoracle.load_oracle(folder_path + 'chroma_oracle.dat.db')
     mfcc_oracle = pyoracle.load_oracle(folder_path + 'mfcc_oracle.dat.db')
-    print chroma_oracle['sfx']
-    print chroma_oracle['trn']
-    print chroma_oracle['rsfx']
-    print chroma_oracle['lrs']
-    print "chroma oracle: ", chroma_oracle['data']
+
     events_list = chroma_oracle['data'][1:]
+    current_oracle = num2oracle(oracle_number)
+    load_thresholds(folder_path)
 
 
 def save_thresholds(folder_path):
@@ -412,12 +422,7 @@ def oracle_type(n):
     global current_oracle, oracle_number
     print 'switched features: ', n
     oracle_number = n
-    current_oracle = {0: mfcc_oracle,
-                      1: centroid_oracle,
-                      2: amp_oracle,
-                      3: zerocross_oracle,
-                      4: pitch_oracle,
-                      5: chroma_oracle}[n]
+    current_oracle = num2oracle(n)
 
 def get_next_state():
     '''

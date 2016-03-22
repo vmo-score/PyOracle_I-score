@@ -117,6 +117,10 @@ def load_oracle(folder_path):
     current_oracle = num2oracle(oracle_number)
     load_thresholds(folder_path)
 
+    send_class.send(len(current_oracle['lrs']), 'len_oracle')
+    send_class.send(0, 'next_state')
+
+
 
 def save_thresholds(folder_path):
     global thresholds

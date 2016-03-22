@@ -85,6 +85,15 @@ def load_thresholds(folder_path):
         address = 'ideal_t_' + feature
         send_class.send(thresholds[feature], address)
 
+def load_buffer(folder_path):
+    filename = folder_path + "/buffer.aif"
+    send_class.send(filename, 'load_buffer')
+
+
+def save_buffer(folder_path):
+    filename = folder_path + "/buffer.aif"
+    send_class.send(filename, 'save_buffer')
+
 
 def num2oracle(n):
     '''
@@ -116,6 +125,7 @@ def load_oracle(folder_path):
     events_list = chroma_oracle['data'][1:]
     current_oracle = num2oracle(oracle_number)
     load_thresholds(folder_path)
+    load_buffer(folder_path)
 
     send_class.send(len(current_oracle['lrs']), 'len_oracle')
     send_class.send(0, 'next_state')
@@ -145,6 +155,7 @@ def save_oracle(folder_path):
     pyoracle.save_oracle(chroma_oracle, folder_path + '/chroma_oracle.dat')
 
     save_thresholds(folder_path)
+    save_buffer(folder_path)
 
 
 def set_taboo_active(n):

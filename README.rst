@@ -1,8 +1,28 @@
+================================
 PyOracle improvisation + i-score
 ================================
 
-Integration of the Max PyOracle_ interface with the intermedia sequence
-i-score_.
+Integration of the Max PyOracle interface with the intermedia sequence
+i-score.
 
-.. _PyOracle: https://pypi.python.org/pypi/PyOracle
-.. _i-score: http://i-score.org
+Installation
+~~~~~~~~~~~~
+
+In order to use `PyOracle <https://github.com/himito/PyOracle_I-score>`_, it is necessary to install the following tools:
+
+- `Max/MSP <https://cycling74.com/>`_: Briefly, PyOracle is a Max
+  patch allowing to play and capture in real-time the audio that will
+  be processed by the python module of factor oracle.
+
+- `Py <https://github.com/himito/py-mac>`_: The interface between
+  Max/MSP and the Python implementation of factor oracle is carried
+  out by the plugin Py. To install please refer to README file of the
+  package.
+
+For the communication with `i-score <https://github.com/OSSIA/i-score>`_, you need to install:
+
+- `Jamoma <http://jamoma.org/download/>`_: The communication between
+  *Max/MSP* and `i-score <https://github.com/OSSIA/i-score>`_ is
+  carried out by using the protocol *minuit*. In this regard, we need
+  to install **jamoma**. To install please refer to this `video
+  <https://vimeo.com/161361407>`_.

@@ -21,7 +21,7 @@ In order to use `PyOracle <https://github.com/himito/PyOracle_I-score>`_, it is 
 
 For the communication with `i-score <https://github.com/OSSIA/i-score>`_, you need to install:
 
-- `Jamoma <http://jamoma.org/download/>`_: The communication between
+- `Jamoma <https://github.com/himito/Jamoma>`_: The communication between
   *Max/MSP* and `i-score <https://github.com/OSSIA/i-score>`_ is
   carried out by using the protocol *minuit*. In this regard, we need
   to install **jamoma**. To install please refer to this `video

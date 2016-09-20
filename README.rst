@@ -24,5 +24,4 @@ For the communication with `i-score <https://github.com/OSSIA/i-score>`_, you ne
 - `Jamoma <https://github.com/himito/Jamoma>`_: The communication between
   *Max/MSP* and `i-score <https://github.com/OSSIA/i-score>`_ is
   carried out by using the protocol *minuit*. In this regard, we need
-  to install **jamoma**. To install please refer to this `video
-  <https://vimeo.com/161361407>`_.
+  to install **jamoma**.
